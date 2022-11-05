@@ -1,0 +1,21 @@
+# Ignore artifacts:
+/.forceCode
+/.history
+/.sfdx
+/.vscode
+/config
+/**/staticresources
+.prettierrc
+.forceignore
+.gitignore
+.prettierignore
+.project
+*.json
+*.yml
+*.log
+*.html
+*.js
+*.trigger
+*.css
+*.page
+*.less

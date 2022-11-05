@@ -1,0 +1,16 @@
+# .gitignore for force.com projects (the github default)
+
+# .project
+.settings
+salesforce.schema
+Referenced Packages
+
+.forcecode
+force.json
+.sfdx
+.vscode
+mdapi*/
+.idea
+node_modules
+package-lock.json
+.sf
