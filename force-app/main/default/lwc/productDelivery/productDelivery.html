@@ -1,0 +1,13 @@
+<template>
+	<lightning-card title="Test Flow">
+		<div class="slds-p-around_small">
+			<lightning-button if:false={selectedProduct} label="Choose product" aria-haspopup="modal" onclick={handleOpen}></lightning-button>
+			<lightning-flow
+				if:true={selectedProduct}
+				flow-api-name="Product_Delivery"
+				flow-input-variables={inputVariables}
+				onstatuschange={handleStatusChange}
+			></lightning-flow>
+		</div>
+	</lightning-card>
+</template>

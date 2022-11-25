@@ -1,0 +1,18 @@
+<template>
+	<lightning-modal-header label="Products"></lightning-modal-header>
+	<lightning-modal-body>
+		<div>
+			<lightning-combobox
+				name="product"
+				label="Product"
+				value={selectedProduct}
+				placeholder="Select Product"
+				options={options}
+				onchange={handleChange}
+			></lightning-combobox>
+		</div>
+	</lightning-modal-body>
+	<lightning-modal-footer>
+		<lightning-button label="Select" onclick={handleSelect}></lightning-button>
+	</lightning-modal-footer>
+</template>

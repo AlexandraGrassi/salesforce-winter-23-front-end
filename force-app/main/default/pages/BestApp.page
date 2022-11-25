@@ -1,0 +1,15 @@
+<apex:page >
+  <div class="slds-grid slds-gutters slds-p-around_medium">
+        <div class="slds-col">
+            <p>Message Received from Parent LWC</p>
+            <div id="output" class="slds-box" />
+        </div>
+    </div>
+  
+  <script>
+        window.addEventListener("message", function (event) {
+            var output = document.querySelector("#output");
+            output.innerHTML = event.data;
+        });
+    </script>
+</apex:page>

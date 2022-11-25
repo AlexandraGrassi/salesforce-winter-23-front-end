@@ -1,0 +1,29 @@
+<template>
+	<lightning-card title="Old Modal">
+		<div class="slds-p-around_small">
+			<lightning-button label="Choose product" aria-haspopup="modal" onclick={handleOpen}></lightning-button>
+			<p class="slds-m-top_small">Selected Product: {selectedProduct}</p>
+		</div>
+	</lightning-card>
+
+	<c-modal-generic
+		if:true={showModal}
+		modal-classes="slds-modal_medium"
+		modal-header="Products"
+		save-label="Select"
+		hide-cancel
+		onsave={handleClose}
+		onclose={handleClose}
+	>
+		<div slot="modalContent" class="slds-p-around_small" style="min-height: 200px">
+			<lightning-combobox
+				name="product"
+				label="Product"
+				value={selectedProduct}
+				placeholder="Select Product"
+				options={options}
+				onchange={handleChange}
+			></lightning-combobox>
+		</div>
+	</c-modal-generic>
+</template>

@@ -1,0 +1,44 @@
+<template>
+	<section
+		aria-describedby="modal-content-id-1"
+		aria-labelledby="modal-heading-01"
+		aria-modal="true"
+		role="dialog"
+		tabindex="-1"
+		aria-hidden={modalAriaHidden}
+		class={cssClass}
+		onkeydown={keyHandler}
+		onkeyup={keyHandler}
+	>
+		<template if:true={isOpen}>
+			<div class="slds-backdrop slds-backdrop_open" onclick={closeModal}></div>
+		</template>
+
+		<div class="slds-modal__container">
+			<!-- <a href="javascript:void(0)" class="firstlink"></a> -->
+
+			<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" onclick={closeModal} title={labels.close}>
+				<lightning-icon icon-name="utility:close" alternative-text={labels.close} variant="inverse" size="small"></lightning-icon>
+				<span class="slds-assistive-text">{labels.close}</span>
+			</button>
+
+			<header if:true={modalHeader} class="slds-modal__header" onclick={innerClickHandler}>
+				<h2 if:true={modalHeader} id="modal-heading-01" class="slds-modal__title slds-hyphenate">{modalHeader}</h2>
+				<p if:true={modalTagline} class="slds-m-top_x-small">{modalTagline}</p>
+			</header>
+
+			<slot name="modalHeader" onclick={innerClickHandler}></slot>
+
+			<div class="slds-modal__content" id="modal-content-id-1" tabindex="-1" onclick={innerClickHandler}>
+				<slot name="modalContent"></slot>
+			</div>
+
+			<footer class={footerClass} onclick={innerClickHandler}>
+				<button if:false={hideCancelButton} class="slds-button slds-button_neutral cancel" onclick={closeModal}>{cancelLabel}</button>
+				<button if:false={hideSaveButton} class="slds-button slds-button_brand save" onclick={saveHandler}>{saveLabel}</button>
+				<slot name="footerActions"></slot>
+				<!-- <a href="javascript:void(0)" class="lastLink"></a> -->
+			</footer>
+		</div>
+	</section>
+</template>
